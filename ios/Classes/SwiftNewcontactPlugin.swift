@@ -3,7 +3,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-public class SwiftNewcontactPlugin: NSObject, FlutterPlugin {
+public class SwiftNewcontactPlugin: NSObject, FlutterPlugin, CNContactViewControllerDelegate {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "newcontact", binaryMessenger: registrar.messenger())
     let instance = SwiftNewcontactPlugin()
@@ -14,10 +14,16 @@ public class SwiftNewcontactPlugin: NSObject, FlutterPlugin {
     if call.method == "newContact" {
         let newContact = CNMutableContact()
         let contactViewController = CNContactViewController(forNewContact: newContact)
+        contactViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: contactViewController)
         UIApplication.shared.keyWindow?.rootViewController?.present(navigationController, animated: true, completion: nil)
     } else {
         result("iOS " + UIDevice.current.systemVersion)
     }
+  }
+
+  public func contactViewController(_ viewController: CNContactViewController, didCompleteWith contact: CNContact?) {
+      viewController.dismiss(animated: true, completion: nil)
+      UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
   }
 }
