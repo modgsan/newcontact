@@ -7,3 +7,6 @@ readme update
 
 ## 0.0.3
 fix cannot close contact page in IOS
+
+## 0.0.5
+add return

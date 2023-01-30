@@ -1,6 +1,6 @@
 name: newcontact
 description: Open origin (android/ios) create contact page.
-version: 0.0.3
+version: 0.0.5
 homepage: https://github.com/modgsan/newcontact
 
 environment:

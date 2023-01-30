@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'newcontact_method_channel.dart';
@@ -27,7 +29,7 @@ abstract class NewcontactPlatform extends PlatformInterface {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  Future<void> newContact() {
+  Future<bool> newContact() {
     throw UnimplementedError('newContact() has not been implemented.');
   }
 }

@@ -16,7 +16,8 @@ class MethodChannelNewcontact extends NewcontactPlatform {
   }
 
   @override
-  Future<void> newContact() async {
-    await methodChannel.invokeMethod<String>('newContact');
+  Future<bool> newContact() async {
+    final ret = await methodChannel.invokeMethod<bool>('newContact');
+    return ret??false;
   }
 }

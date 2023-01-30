@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      await _newcontactPlugin.newContact();
+      bool ret = await _newcontactPlugin.newContact();
       platformVersion =
           await _newcontactPlugin.getPlatformVersion() ?? 'Unknown platform version';
     } on PlatformException {

@@ -6,8 +6,8 @@ class Newcontact {
     return NewcontactPlatform.instance.getPlatformVersion();
   }
 
-  Future<void> newContact() async {
-    await NewcontactPlatform.instance.newContact();
+  Future<bool> newContact() {
+    return NewcontactPlatform.instance.newContact();
   }
 }
 

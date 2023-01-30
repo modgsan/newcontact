@@ -11,9 +11,7 @@ class MockNewcontactPlatform
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
   @override
-  Future<void> newContact() async {
-
-  }
+  Future<bool> newContact() => Future.value(false);
 }
 
 void main() {
