@@ -1,5 +1,7 @@
 import Flutter
 import UIKit
+import Contacts
+import ContactsUI
 
 public class SwiftNewcontactPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -9,6 +11,13 @@ public class SwiftNewcontactPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+    if call.method == "newContact" {
+        let newContact = CNMutableContact()
+        let contactViewController = CNContactViewController(forNewContact: newContact)
+        let navigationController = UINavigationController(rootViewController: contactViewController)
+        UIApplication.shared.keyWindow?.rootViewController?.present(navigationController, animated: true, completion: nil)
+    } else {
+        result("iOS " + UIDevice.current.systemVersion)
+    }
   }
 }

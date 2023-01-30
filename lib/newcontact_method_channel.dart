@@ -14,4 +14,9 @@ class MethodChannelNewcontact extends NewcontactPlatform {
     final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
+
+  @override
+  Future<void> newContact() async {
+    await methodChannel.invokeMethod<String>('newContact');
+  }
 }

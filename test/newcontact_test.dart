@@ -10,6 +10,10 @@ class MockNewcontactPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  @override
+  Future<void> newContact() async {
+
+  }
 }
 
 void main() {

@@ -26,4 +26,8 @@ abstract class NewcontactPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<void> newContact() {
+    throw UnimplementedError('newContact() has not been implemented.');
+  }
 }
